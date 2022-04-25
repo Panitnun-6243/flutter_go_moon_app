@@ -13,14 +13,22 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          child: Column(
+          child: Stack(
             children: [
-              _pageTitle(),
-              _bookRideWidget(),
+              Column(
+                children: [
+                  _pageTitle(),
+                  _bookRideWidget(),
+                ],
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+              ),
+              Align(
+                child: _astroImageWidget(),
+                alignment: Alignment.centerRight,
+              )
             ],
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
           ),
           width: _deviceWidth,
           height: _deiceHeight,
@@ -42,6 +50,8 @@ class HomePage extends StatelessWidget {
 
   Widget _astroImageWidget() {
     return Container(
+      width: _deviceWidth * 0.55,
+      height: _deiceHeight * 0.7,
       decoration: const BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.contain,
