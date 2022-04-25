@@ -12,8 +12,27 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          color: Colors.lightBlue,
-          child: _destinationDropDownWidget(),
+          child: Column(
+            children: [
+              _pageTitle(),
+              Column(
+                children: [
+                  _destinationDropDownWidget(),
+                  Row(
+                    children: [
+                      _destinationDropDownWidget(),
+                      _destinationDropDownWidget(),
+                    ],
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  ),
+                  _destinationDropDownWidget(),
+                ],
+              ),
+            ],
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+          ),
           width: _deviceWidth,
           height: _deiceHeight,
           padding: EdgeInsets.symmetric(
