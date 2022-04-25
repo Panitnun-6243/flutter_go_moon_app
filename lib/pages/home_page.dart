@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_moon/widgets/custom_dropdown_button.dart';
 
 class HomePage extends StatelessWidget {
   late double _deiceHeight, _deviceWidth;
@@ -18,14 +19,7 @@ class HomePage extends StatelessWidget {
               Column(
                 children: [
                   _destinationDropDownWidget(),
-                  Row(
-                    children: [
-                      _destinationDropDownWidget(),
-                      _destinationDropDownWidget(),
-                    ],
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  ),
-                  _destinationDropDownWidget(),
+                  _travellerInformationWidget(),
                 ],
               ),
             ],
@@ -65,36 +59,18 @@ class HomePage extends StatelessWidget {
   Widget _destinationDropDownWidget() {
     List<String> _items = ['Tanny Station', 'Panitnun Station'];
 
-    return Container(
-      child: DropdownButton(
-        value: _items.first,
-        items: _items.map(
-          (e) {
-            return DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            );
-          },
-        ).toList(),
-        underline: Container(),
-        dropdownColor: const Color.fromRGBO(53, 53, 53, 1.0),
-        style: const TextStyle(
-          color: Colors.white,
-        ),
-        onChanged: (_) {},
-      ),
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(
-          53,
-          53,
-          53,
-          1.0,
-        ),
-        borderRadius: BorderRadius.circular(
-          10,
-        ),
-      ),
-      padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
+    return CustomDropDownButton(
+      values: _items,
+      width: _deviceWidth,
+    );
+  }
+
+  Widget _travellerInformationWidget() {
+    List<String> _items = ['1', '2', '3', '4'];
+
+    return CustomDropDownButton(
+      values: _items,
+      width: _deviceWidth * 0.45,
     );
   }
 }
