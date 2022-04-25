@@ -63,20 +63,38 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _destinationDropDownWidget() {
-    List<DropdownMenuItem<String>> _items =
-        ['Tanny Station', 'Panitnun Station'].map(
-      (e) {
-        return DropdownMenuItem(
-          child: Text(e),
-          value: e,
-        );
-      },
-    ).toList();
+    List<String> _items = ['Tanny Station', 'Panitnun Station'];
+
     return Container(
       child: DropdownButton(
-        items: _items,
+        value: _items.first,
+        items: _items.map(
+          (e) {
+            return DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            );
+          },
+        ).toList(),
+        underline: Container(),
+        dropdownColor: const Color.fromRGBO(53, 53, 53, 1.0),
+        style: const TextStyle(
+          color: Colors.white,
+        ),
         onChanged: (_) {},
       ),
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(
+          53,
+          53,
+          53,
+          1.0,
+        ),
+        borderRadius: BorderRadius.circular(
+          10,
+        ),
+      ),
+      padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
     );
   }
 }
