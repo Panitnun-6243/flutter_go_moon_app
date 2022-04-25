@@ -86,9 +86,26 @@ class HomePage extends StatelessWidget {
         children: [
           _destinationDropDownWidget(),
           _travellerInformationWidget(),
+          _rideButton()
         ],
       ),
       height: _deiceHeight * 0.25,
+    );
+  }
+
+  Widget _rideButton() {
+    return Container(
+      margin: EdgeInsets.only(bottom: _deiceHeight * 0.01),
+      width: _deviceWidth,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(
+            10,
+          )),
+      child: MaterialButton(
+        onPressed: (() {}),
+        child: const Text('Get ride!!'),
+      ),
     );
   }
 }
